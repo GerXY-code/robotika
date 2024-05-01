@@ -16,5 +16,5 @@ A manuális mozgásokat pedig egy gyroscope fogja érzékelni.
 
 ## Projekt készítői
 
--- Lehoczki Gergő Péter (ZH5ED7)
--- Marada Márk (pls neptunkód)
+- Lehoczki Gergő Péter (ZH5ED7)
+- Marada Márk (pls neptunkód)
