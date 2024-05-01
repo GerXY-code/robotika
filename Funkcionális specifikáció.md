@@ -5,9 +5,16 @@ Végül pedig egy LCD kijelző megjeleníti, hogy milyen messze található től
 A manuális mozgásokat pedig egy gyroscope fogja érzékelni.
 
 
+
 ## Komponens lista
 
 
 
 
 ## Kapcsolási terv
+
+
+## Projekt készítői
+
+--Lehoczki Gergő Péter (ZH5ED7)
+--Marada Márk (pls neptunkód)
