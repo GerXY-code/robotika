@@ -1,3 +1,7 @@
+## Bevezetés
+
+
+
 ## Komponens lista
 
 
