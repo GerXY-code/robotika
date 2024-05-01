@@ -1,0 +1,6 @@
+## Komponens lista
+
+
+
+
+## Kapcsolási terv
