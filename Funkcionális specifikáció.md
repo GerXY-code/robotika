@@ -8,8 +8,11 @@ A manuális mozgásokat pedig egy gyroscope fogja érzékelni.
 
 ## Komponens lista
 
-
-
+- resistor (220 ohm)
+- LED
+- LCD 16x2
+- servo motor mg90s
+- GY-521 MPU6050 3 tengelyű gyorsulásmérő és 3 tengelyű giroszkóp
 
 ## Kapcsolási terv
 
