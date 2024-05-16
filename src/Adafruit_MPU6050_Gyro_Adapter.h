@@ -15,6 +15,7 @@ class Adafruit_MPU6050_Gyro_Adapter : public IGyro {
     }
     ~Adafruit_MPU6050_Gyro_Adapter() {
       delete m_gyro;
+      delete m_event;
     }
     float getRotationX() override;
     float getRotationY() override;
