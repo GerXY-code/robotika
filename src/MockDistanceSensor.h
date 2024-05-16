@@ -4,7 +4,7 @@
 
 class MockDistanceSensor : public IDistanceSensor {
   public: 
-    uint16_t getDistanceInCm() {
+    uint16_t getDistanceInCm() override {
       return random(5, 100);
     }
 };
