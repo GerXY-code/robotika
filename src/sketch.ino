@@ -2,16 +2,16 @@
 #include <Wire.h>
 #include <Servo.h>
 #include "Locator.h"
-#include "MockDistanceSensor.h"
+#include "UltraSonicDistanceSensor.h"
 #include "Adafruit_MPU6050_Gyro_Adapter.h"
 
-#define PIN_SERVO 9
 #define SERVO_STARTING_POS 0
-#define PIN_TRIG 3
 #define PIN_ECHO 2
+#define PIN_TRIG 3
+#define PIN_SERVO 9
 
 Adafruit_MPU6050 mpu;
-IDistanceSensor *distSensor = new MockDistanceSensor();
+IDistanceSensor *distSensor = new UltraSonicDistanceSensor(PIN_TRIG, PIN_ECHO);
 Servo servo;
 IGyro *gyro = NULL;
 Locator *locator = NULL;
@@ -23,8 +23,6 @@ void setup(void) {
     delay(1000);
   }
   Serial.println("MPU6050 ready!");
-  pinMode(PIN_TRIG, OUTPUT);
-  pinMode(PIN_ECHO, INPUT);
   servo.attach(PIN_SERVO);
   gyro = new Adafruit_MPU6050_Gyro_Adapter(mpu.getGyroSensor());
   locator = new Locator(distSensor, gyro, &servo);
@@ -32,6 +30,7 @@ void setup(void) {
 
 void loop() {
   locator->sweep(SERVO_STARTING_POS, 180);
-  Serial.println(gyro->getRotationZ());
+  // Serial.println(gyro->getRotationZ());
+  Serial.println(distSensor->getDistanceInCm());
 }
 
