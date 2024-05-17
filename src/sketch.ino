@@ -26,11 +26,9 @@ void setup(void) {
   servo.attach(PIN_SERVO);
   gyro = new Adafruit_MPU6050_Gyro_Adapter(mpu.getGyroSensor());
   locator = new Locator(distSensor, gyro, &servo);
+  locator->start();
 }
 
 void loop() {
-  locator->sweep(SERVO_STARTING_POS, 180);
-  // Serial.println(gyro->getRotationZ());
-  Serial.println(distSensor->getDistanceInCm());
 }
 

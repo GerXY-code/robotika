@@ -1,13 +1,13 @@
 #include "Locator.h"
+#include "SweepingState.h"
 
-void Locator::sweep(uint16_t servoStartingPos, uint16_t boundary) {
-  int16_t pos;
-  for (pos = servoStartingPos; pos <= boundary; pos += 1) {
-    m_servo->write(pos);
-    delay(15);
-  }
-  for (pos = boundary; pos >= 0; pos -= 1) {
-    m_servo->write(pos);              
-    delay(15);                     
-  }
+Locator::Locator(IDistanceSensor *distSensor, IGyro *gyro, Servo *servo) {
+  m_distSensor = distSensor;
+  m_gyro = gyro;
+  m_servo = servo;
+  m_locState = new SweepingState(this);
+} 
+
+void Locator::start() {
+  m_locState->handle();
 }
