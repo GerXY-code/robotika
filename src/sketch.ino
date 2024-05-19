@@ -23,6 +23,7 @@ void setup(void) {
     delay(1000);
   }
   Serial.println("MPU6050 ready!");
+  pinMode(4, OUTPUT);
   servo.attach(PIN_SERVO);
   gyro = new Adafruit_MPU6050_Gyro_Adapter(mpu.getGyroSensor());
   locator = new Locator(distSensor, gyro, &servo);
