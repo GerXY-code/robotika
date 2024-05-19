@@ -8,14 +8,26 @@
 
 class LocatorState;
 
+struct LocatorConfig {
+  const uint16_t rotationBoundary;
+  const uint16_t distanceRangeMin;
+  const uint16_t distanceRangeMax;
+  const uint16_t servoStartingPos;
+  LocatorConfig(uint16_t sSPos, uint16_t rB, uint16_t dRMin, uint16_t dRMax): 
+    servoStartingPos(sSPos), rotationBoundary(rB), distanceRangeMin(dRMin), distanceRangeMax(dRMax){}
+  LocatorConfig& operator=(const LocatorConfig&) = delete;
+};
+
 class Locator {
   private:
     IDistanceSensor *m_distSensor;
     IGyro *m_gyro;
     Servo *m_servo;
     LocatorState *m_locState;
+    LocatorConfig *m_locConfig;
   public:
     Locator(IDistanceSensor *distSensor, IGyro *gyro, Servo *servo);
+    Locator(IDistanceSensor *distSensor, IGyro *gyro, Servo *servo, LocatorConfig *locConfig);
     ~Locator() {
       delete m_distSensor; 
       delete m_gyro;
@@ -32,6 +44,9 @@ class Locator {
     }
     Servo *getServo() {
       return m_servo;
+    }
+    LocatorConfig *getLocatorConfig() {
+      return m_locConfig;
     }
     void start();
   };

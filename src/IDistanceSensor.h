@@ -5,7 +5,7 @@
 class IDistanceSensor {
   public:
     virtual ~IDistanceSensor() {};
-    virtual uint16_t getDistanceInCm() = 0;
+    virtual uint16_t getTargetDistanceInCm() = 0;
 };
 
 #endif
