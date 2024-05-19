@@ -8,7 +8,7 @@ class UltraSonicDistanceSensor : public IDistanceSensor {
     uint8_t m_pinEcho;
   public: 
     UltraSonicDistanceSensor(uint8_t pinTrig, uint8_t pinEcho);
-    uint16_t getDistanceInCm() override;
+    uint16_t getTargetDistanceInCm() override;
 };
 
 #endif

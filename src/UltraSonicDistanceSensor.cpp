@@ -8,7 +8,7 @@ UltraSonicDistanceSensor::UltraSonicDistanceSensor(uint8_t pinTrig, uint8_t pinE
   pinMode(pinEcho, INPUT);
 }
 
-uint16_t UltraSonicDistanceSensor::getDistanceInCm() {
+uint16_t UltraSonicDistanceSensor::getTargetDistanceInCm() {
   digitalWrite(m_pinTrig, HIGH);
   delayMicroseconds(10);
   digitalWrite(m_pinTrig, LOW);
