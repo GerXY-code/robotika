@@ -17,6 +17,11 @@ A manuális mozgásokat pedig egy gyroscope fogja érzékelni és a servo motor 
 
 
 
+## Wokwi szimuláció
+
+![Wokwi circuit figure](https://github.com/GerXY-code/robotika/blob/main/wokwiabra.png)
+
+
 ## Projekt készítői
 
 - Lehoczki Gergő Péter (ZH5ED7)
