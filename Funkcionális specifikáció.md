@@ -15,6 +15,7 @@ A manuális mozgásokat pedig egy gyroscope fogja érzékelni és a servo motor 
 
 ## Kapcsolási terv
 
+![Circuit diagram](https://github.com/GerXY-code/robotika/blob/figure/circuit-diagram/circuitdiagram.png)
 
 
 ## Wokwi szimuláció
