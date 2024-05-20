@@ -25,5 +25,6 @@ IDistanceSensor *distSensor, Servo *servo) {
       FixatedState *newState = new FixatedState(m_loc);
       m_loc->setState(newState);
       newState->handle();
+
     }
 }

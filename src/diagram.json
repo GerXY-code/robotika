@@ -11,7 +11,7 @@
       "id": "ultrasonic1",
       "top": -56.1,
       "left": 408.7,
-      "attrs": { "distance": "31" }
+      "attrs": { "distance": "67" }
     },
     { "type": "wokwi-servo", "id": "servo1", "top": 353.2, "left": 355.2, "attrs": {} },
     {
@@ -49,12 +49,12 @@
     [ "ultrasonic1:VCC", "bb1:bp.7", "red", [ "v48", "h96", "v240", "h-249.6" ] ],
     [ "imu1:GND", "bb1:bn.8", "black", [ "v-19.2", "h240.08", "v403.2", "h-249.6" ] ],
     [ "imu1:VCC", "bb1:bp.9", "red", [ "v-38.4", "h249.68", "v432", "h-9.6" ] ],
+    [ "bb1:16t.e", "uno:4", "red", [ "v-374.4", "h-278.4", "v96", "h38.4", "v28.8", "h9.6" ] ],
     [ "led1:A", "bb1:16t.a", "", [ "$bb" ] ],
     [ "led1:C", "bb1:15t.a", "", [ "$bb" ] ],
-    [ "bb1:15b.j", "bb1:bp.12", "black", [ "v0" ] ],
     [ "r1:1", "bb1:15b.i", "", [ "$bb" ] ],
     [ "r1:2", "bb1:15t.e", "", [ "$bb" ] ],
-    [ "bb1:16t.e", "uno:4", "red", [ "v-374.4", "h-278.4", "v96", "h38.4", "v28.8", "h9.6" ] ]
+    [ "bb1:15b.j", "bb1:bn.12", "green", [ "v0" ] ]
   ],
   "dependencies": {}
 }
