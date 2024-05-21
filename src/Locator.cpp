@@ -5,8 +5,10 @@
 #define DEFAULT_ROTATION_BOUNDARY 180
 #define DEFAULT_MIN_DISTANCE_RANGE 2
 #define DEFAULT_MAX_DISTANCE_RANGE 50
+#define DEFAULT_ROTATION_THRESHOLD 0.25f
 
 LocatorConfig defaultLocConfig = {
+  DEFAULT_ROTATION_THRESHOLD,
   DEFAULT_SERVO_STARTING_POS,
   DEFAULT_ROTATION_BOUNDARY,
   DEFAULT_MIN_DISTANCE_RANGE,
@@ -19,7 +21,7 @@ Locator::Locator(IDistanceSensor *distSensor, IGyro *gyro, Servo *servo, Locator
   m_distSensor = distSensor;
   m_gyro = gyro;
   m_servo = servo;
-  m_locState = new SweepingState(this);
+  m_locState = new SweepingState(this, locConfig->servoStartingPos);
   m_locConfig = locConfig;
 }
 
