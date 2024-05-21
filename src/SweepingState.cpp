@@ -1,30 +1,26 @@
 #include "SweepingState.h"
 
-
 void SweepingState::handle() {
   Servo *servo = m_loc->getServo();
   IDistanceSensor *distSensor = m_loc->getDistanceSensor();
   LocatorConfig *locConfig = m_loc->getLocatorConfig();
-  while(true) {
-    int16_t pos;
-    
-    for (pos = locConfig->servoStartingPos; pos <= locConfig->rotationBoundary; pos += 1) {
-      onRotationChange(pos, locConfig, distSensor, servo);
+  while (m_currentPos < locConfig->rotationBoundary) {
+    if (isTargetInRange(locConfig, distSensor)) {
+      break;
     }
-
-    for (pos = locConfig->rotationBoundary; pos >= 0; pos -= 1) {
-      onRotationChange(pos, locConfig, distSensor, servo);
-    }
+    servo->write(m_currentPos);
+    m_currentPos++;
+    delay(5);
   }
-}
-
-void SweepingState::onRotationChange(uint16_t pos, LocatorConfig *locConfig, 
-IDistanceSensor *distSensor, Servo *servo) {
-    servo->write(pos);
-    if(isInRange(locConfig, distSensor)) {
-      FixatedState *newState = new FixatedState(m_loc);
-      m_loc->setState(newState);
-      newState->handle();
-
+  while (m_currentPos > 0) {
+    if (isTargetInRange(locConfig, distSensor)) {
+      break;
     }
+    servo->write(m_currentPos);
+    m_currentPos--;
+    delay(5);
+  }
+  FixatedState *newState = new FixatedState(m_loc, m_currentPos);
+  m_loc->setState(newState);
+  newState->handle();
 }

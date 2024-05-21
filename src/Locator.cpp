@@ -19,7 +19,7 @@ Locator::Locator(IDistanceSensor *distSensor, IGyro *gyro, Servo *servo, Locator
   m_distSensor = distSensor;
   m_gyro = gyro;
   m_servo = servo;
-  m_locState = new SweepingState(this);
+  m_locState = new SweepingState(this, locConfig->servoStartingPos);
   m_locConfig = locConfig;
 }
 
