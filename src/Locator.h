@@ -9,12 +9,13 @@
 class LocatorState;
 
 struct LocatorConfig {
+  const float rotationThreshold;
   const uint16_t rotationBoundary;
   const uint16_t distanceRangeMin;
   const uint16_t distanceRangeMax;
   const uint16_t servoStartingPos;
-  LocatorConfig(uint16_t sSPos, uint16_t rB, uint16_t dRMin, uint16_t dRMax): 
-    servoStartingPos(sSPos), rotationBoundary(rB), distanceRangeMin(dRMin), distanceRangeMax(dRMax){}
+  LocatorConfig(float rT, uint16_t sSPos, uint16_t rB, uint16_t dRMin, uint16_t dRMax): 
+    rotationThreshold(rT), servoStartingPos(sSPos), rotationBoundary(rB), distanceRangeMin(dRMin), distanceRangeMax(dRMax){}
   LocatorConfig& operator=(const LocatorConfig&) = delete;
 };
 
